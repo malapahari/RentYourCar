@@ -17,6 +17,39 @@ A portal for owners to rent his/her car
 
 # Screen Shots
 
-##Login
+## Login Page
 
 ![login](/screenshots/login.png?raw=true "Login Page")
+
+## Register Page
+
+![register](/screenshots/register.png?raw=true "Register Page")
+
+
+## My Cars Page
+
+![My Cars](/screenshots/mycars.png?raw=true "My Cars Page")
+
+
+## My Rentals Page
+
+![My Rentals](/screenshots/renthistory.png?raw=true "My Rentals Page")
+
+
+## List Your Car
+
+![List Your Car](/screenshots/listyourcar.png?raw=true "List Your Car Page")
+
+
+## Search
+
+![Search](/screenshots/search.png?raw=true "Search Page")
+
+
+## Rent Car
+
+![Rent Car](/screenshots/rent.png?raw=true "Rent Car Page")
+
+
+
+
