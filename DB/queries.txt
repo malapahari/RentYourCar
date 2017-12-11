@@ -1,0 +1,71 @@
+﻿CREATE TABLE `rentyourcar`.`User` (
+  `UserId` INT NOT NULL,
+  `FirstName` VARCHAR(45) NOT NULL,
+  `LastName` VARCHAR(45) NOT NULL,
+  `PhoneNumber` VARCHAR(45) NOT NULL,
+  `DateOfBirth` DATETIME NOT NULL,
+  `EmailAddress` VARCHAR(45) NOT NULL,
+  `Password` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`UserId`));
+
+  CREATE TABLE `rentyourcar`.`Car` (
+  `CarId` INT NOT NULL AUTO_INCREMENT,
+  `Year` INT NOT NULL,
+  `Make` VARCHAR(45) NOT NULL,
+  `Model` VARCHAR(45) NOT NULL,
+  `Odometer` DECIMAL(8,2) NOT NULL,
+  `Color` VARCHAR(45) NOT NULL,
+  `CarLocation` VARCHAR(100) NOT NULL,
+  `PricePerDay` DECIMAL(6,2) NOT NULL,
+  `PricePerExtraMile` DECIMAL(6,2) NOT NULL,
+  `AllowedMileagePerDay` INT NOT NULL,
+  PRIMARY KEY (`CarId`));
+
+  CREATE TABLE `rentyourcar`.`UserRental` (
+  `UserRentalId` INT NOT NULL AUTO_INCREMENT,
+  `RenterUserId` INT NOT NULL,
+  `CarId` INT NOT NULL,
+  `StartOdometer` DOUBLE NOT NULL,
+  `EndOdometer` DOUBLE NULL,
+  `RentalStartDate` DATETIME NOT NULL,
+  `RentalEndDate` DATETIME NOT NULL,
+  `Notes` VARCHAR(45) NULL,
+  `CarRating` INT NULL,
+  `RentersRating` INT NULL,
+  PRIMARY KEY (`UserRentalId`),
+  INDEX `renteruserid_fk_idx` (`RenterUserId` ASC),
+  CONSTRAINT `renteruserid_fk`
+    FOREIGN KEY (`RenterUserId`)
+    REFERENCES `rentyourcar`.`User` (`UserId`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+    ALTER TABLE `rentyourcar`.`UserRental` 
+ADD COLUMN `RentalPrice` DECIMAL(7,2) NOT NULL DEFAULT 0;
+
+
+    ALTER TABLE `rentyourcar`.`UserRental` 
+ADD INDEX `caruser_fk_idx` (`CarId` ASC);
+ALTER TABLE `rentyourcar`.`UserRental` 
+ADD CONSTRAINT `caruser_fk`
+  FOREIGN KEY (`CarId`)
+  REFERENCES `rentyourcar`.`Car` (`CarId`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+  CREATE TABLE `UserCar` (
+  `UserCarId` int(11) NOT NULL AUTO_INCREMENT,
+  `UserId` int(11) NOT NULL,
+  `CarId` int(11) NOT NULL,
+  PRIMARY KEY (`UserCarId`),
+  KEY `usercaruser_fk_idx` (`UserId`),
+  KEY `usercarcar_fk_idx` (`CarId`),
+  CONSTRAINT `usercarcar_fk` FOREIGN KEY (`CarId`) REFERENCES `Car` (`CarId`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `usercaruser_fk` FOREIGN KEY (`UserId`) REFERENCES `User` (`UserId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `rentyourcar`.`UserCar` 
+ADD COLUMN `Status` VARCHAR(45) NOT NULL AFTER `CarId`;
+
+

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<RentYourCar.Models.UserRental>
+
+@{
+    ViewBag.Title = "My Car Rentals";
+}
+
+@using (Html.BeginForm()) 
+{
+
+@Html.AntiForgeryToken()
+
+<div class="container">    
+
+ <h1 class="well">My Rentals</h1>
+	
+    <div id="cars" class="row list-group">
+    @foreach(var item in Model)
+        {
+        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <!--<img class="group list-group-image" src="#" alt="Car Image" />-->
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        @Html.DisplayFor(modelItem => item.Car.Make) @Html.DisplayFor(modelItem => item.Car.Model) @Html.DisplayFor(modelItem => item.Car.Year)</h4>
+                    <p class="group inner list-group-item-text">
+                        Odometer: @Html.DisplayFor(modelItem => item.Car.Odometer)</p>
+                    <p class="group inner list-group-item-text">
+                        Allowed Mileage Per Day: @Html.DisplayFor(modelItem => item.Car.AllowedMileagePerDay)</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                               Price Per Day: $@Html.DisplayFor(modelItem => item.Car.PricePerDay)</p>
+                            <p class="lead">
+                               Price Per Extra Mile: $@Html.DisplayFor(modelItem => item.Car.PricePerExtraMile)</p>
+                        </div>
+                    </div>
+
+					<div class="row">
+                        <div class="col-xs-12">
+                            <p class="lead">
+                               Rental Start Date: @Html.DisplayFor(modelItem => item.RentalStartDate)</p>
+                            <p class="lead">
+                               Rental End Date: @Html.DisplayFor(modelItem => item.RentalEndDate)</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p class="lead">
+                               Total Price: $@Html.DisplayFor(modelItem => item.RentalPrice)</p>                            
+                        </div>
+                    </div>
+					
+					
+				</div>
+            </div>
+        </div>
+    }
+    </div>
+</div>
+
+}

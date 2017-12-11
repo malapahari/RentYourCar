@@ -1,0 +1,41 @@
+﻿@model IEnumerable<RentYourCar.Models.Car>
+
+@{
+    ViewBag.Title = "My Cars";
+}
+
+<h1> Search Result </h1>
+
+
+<div class="container">    
+    <div id="cars" class="row list-group">
+
+    @foreach(var item in Model)
+        {
+        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <!--<img class="group list-group-image" src="#" alt="Car Image" />-->
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        @Html.DisplayFor(modelItem => item.Make) @Html.DisplayFor(modelItem => item.Model) @Html.DisplayFor(modelItem => item.Year)</h4>
+                    <p class="group inner list-group-item-text">
+                        Odometer: @Html.DisplayFor(modelItem => item.Odometer)</p>
+                    <p class="group inner list-group-item-text">
+                        Allowed Mileage Per Day: @Html.DisplayFor(modelItem => item.AllowedMileagePerDay)</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                               Price Per Day: $@Html.DisplayFor(modelItem => item.PricePerDay)</p>
+                            <p class="lead">
+                               Price Per Extra Mile: $@Html.DisplayFor(modelItem => item.PricePerExtraMile)</p>
+                        </div>						
+                        <div class="col-xs-12 col-md-6">
+                            <a class="btn btn-success" href="/Car/Rent?carId=@Html.DisplayFor(modelItem => item.CarId)">Rent</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    </div>
+</div>

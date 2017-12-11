@@ -1,0 +1,27 @@
+﻿<Properties StartupConfiguration="{61203A0B-FFA8-4E42-8D47-CBE2FB5D067F}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DB/queries.txt">
+    <Files>
+      <File FileName="Controllers/CarController.cs" Line="98" Column="17" />
+      <File FileName="Models/UserRental.cs" Line="22" Column="35" />
+      <File FileName="Views/Car/MyCarRentals.cshtml" Line="14" Column="29" />
+      <File FileName="Views/Car/MyCars.cshtml" Line="17" Column="21" />
+      <File FileName="Controllers/UserController.cs" Line="44" Column="1" />
+      <File FileName="Views/Car/ListYourCar.cshtml" Line="13" Column="40" />
+      <File FileName="Views/Car/UserRental.cshtml" Line="14" Column="34" />
+      <File FileName="Models/UserCar.cs" Line="1" Column="1" />
+      <File FileName="DAL/RentYourCarDBContext.cs" Line="17" Column="27" />
+      <File FileName="Models/User.cs" Line="13" Column="26" />
+      <File FileName="DB/queries.txt" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint enabled="false" file="/Users/sanjeevghimire/Projects/RentYourCar/Views/Car/UserRental.cshtml" relfile="Views/Car/UserRental.cshtml" line="2" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.RentYourCar PreferredExecutionTarget="MonoDevelop.Default" />
+  <AuthorInfo Name="Mala Pahari" Email="" Copyright="" Company="" Trademark="" />
+  <MultiItemStartupConfigurations />
+</Properties>

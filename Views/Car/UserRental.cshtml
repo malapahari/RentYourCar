@@ -1,0 +1,62 @@
+﻿@model RentYourCar.Models.UserRental
+
+@{
+    ViewBag.Title = "Rent A Car";
+}
+
+@using (Html.BeginForm("UserRental","Car")) 
+{
+
+@Html.AntiForgeryToken()
+
+<div class="container">    
+
+ <h1 class="well">Car Rental</h1>
+	
+    <div id="cars" class="row list-group">
+        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                @Html.EditorFor(model => model.CarId, new { htmlAttributes = new { @class = "form-control",@type="hidden",@value=@Html.DisplayFor(model => model.Car.CarId) } })
+                 <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        @Html.DisplayFor(model => model.Car.Make) @Html.DisplayFor(model => model.Car.Model) @Html.DisplayFor(model => model.Car.Year)</h4>
+                    <p class="group inner list-group-item-text">
+                        Odometer: @Html.DisplayFor(model => model.Car.Odometer)</p>
+                    <p class="group inner list-group-item-text">
+                        Allowed Mileage Per Day: @Html.DisplayFor(model => model.Car.AllowedMileagePerDay)</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                               Price Per Day: $@Html.DisplayFor(model => model.Car.PricePerDay)</p>
+                            <p class="lead">
+                               Price Per Extra Mile: $@Html.DisplayFor(model => model.Car.PricePerExtraMile)</p>
+                        </div>
+                    </div>
+
+             <div class="form-group">
+                <label>Year</label>
+                <div >
+                    @Html.EditorFor(model => model.RentalStartDate, new { htmlAttributes = new { @class = "form-control", @type="date" } })
+                    @Html.ValidationMessageFor(model => model.RentalStartDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Year</label>
+                <div >
+                    @Html.EditorFor(model => model.RentalEndDate, new { htmlAttributes = new { @class = "form-control",@type="date" } })
+                    @Html.ValidationMessageFor(model => model.RentalStartDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+       <button class="btn btn-primary " name="submit" type="submit">
+        Submit
+       </button> 
+					
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+}
